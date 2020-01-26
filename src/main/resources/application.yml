@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 4
+    url: jdbc:postgresql://localhost:5432/hackarthon
+    username: sadmin
+    password: mypass
+  flyway:
+    enabled: true
+    encoding: UTF-8
+    user: sadmin
+    password: mypass
+  jpa:
+    open-in-view: false
+    show-sql: false
+    generate-ddl: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          delimiter: ";"
+

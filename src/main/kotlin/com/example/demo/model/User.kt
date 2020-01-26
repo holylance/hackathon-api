@@ -14,37 +14,37 @@ import javax.persistence.Table
 data class User(
     @Id
     @JsonProperty("id")
-    val id: BigInteger,
+    val id: BigInteger = 0.toBigInteger(),
 
     @JsonProperty("uuid")
     @Column(name = "uuid")
-    val uuid: UUID,
+    val uuid: UUID = UUID.randomUUID(),
 
     @JsonProperty("full_name")
     @Column(name = "full_name")
-    val fullName: String,
+    val fullName: String = "",
 
     @JsonProperty("phone_number")
     @Column(name = "phone_number")
-    val phoneNumber: String,
+    val phoneNumber: String? = null,
 
     @JsonProperty("email")
     @Column(name = "email")
-    val email: String,
+    val email: String = "",
 
     @JsonProperty("password")
     @Column(name = "password")
-    val password: String,
+    val password: String = "",
 
     @JsonProperty("description")
     @Column(name = "description")
-    val description: String,
+    val description: String? = null,
 
     @JsonProperty("created_date")
     @Column(name = "created_date")
-    val createdDate: String,
+    val createdDate: ZonedDateTime = ZonedDateTime.now(),
 
     @JsonProperty("updated_date")
     @Column(name = "updated_date")
-    val updatedDate: ZonedDateTime
+    val updatedDate: ZonedDateTime? = null
 )
