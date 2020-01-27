@@ -3,9 +3,7 @@ package com.example.demo.controller
 import com.example.demo.model.TestDTO
 import com.example.demo.model.User
 import com.example.demo.repository.UserRepository
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 class HelloController(
@@ -21,5 +19,18 @@ class HelloController(
     @ResponseBody
     fun getAllUser(): List<User> {
         return userRepo.findAll()
+    }
+
+    @GetMapping("/login")
+    @ResponseBody
+    fun login(
+            @RequestHeader("email") email: String,
+            @RequestHeader("password") password: String
+    ): User {
+        val user = userRepo.findByEmail(email)
+        return if (user.password == password)
+            user
+        else
+            User()
     }
 }
