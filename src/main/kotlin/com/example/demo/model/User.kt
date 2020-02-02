@@ -32,6 +32,10 @@ data class User(
     @Column(name = "email")
     val email: String = "",
 
+    @JsonProperty("username")
+    @Column(name = "username")
+    val userName: String = "",
+
     @JsonProperty("password")
     @Column(name = "password")
     val password: String = "",
