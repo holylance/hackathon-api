@@ -21,13 +21,13 @@ class HelloController(
         return userRepo.findAll()
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     @ResponseBody
     fun login(
-            @RequestHeader("email") email: String,
+            @RequestHeader("username") username: String,
             @RequestHeader("password") password: String
     ): User {
-        val user = userRepo.findByEmail(email)
+        val user = userRepo.findByUserName(username)
         return if (user.password == password)
             user
         else
