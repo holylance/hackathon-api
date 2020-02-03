@@ -1,0 +1,10 @@
+version: '2'
+services:
+  postgres:
+    image: "postgres:latest"
+    environment:
+      - "POSTGRES_USER=sadmin"
+      - "POSTGRES_PASSWORD=mypass"
+      - "POSTGRES_DB=hackarthon"
+    ports:
+      - 5432:5432
